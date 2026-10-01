@@ -1,7 +1,7 @@
-# TaskFlow
+# TaskMate
 
-TaskFlow (TaskMate) is a responsive mobile web application for students to
-organize group projects and track shared tasks.
+TaskMate is a responsive mobile web application for students to organize group
+projects and track shared tasks.
 
 ## Features
 
