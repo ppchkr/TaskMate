@@ -1,0 +1,102 @@
+@media (min-width: 768px) {
+  body { display: grid; min-height: 100vh; place-items: center; padding: 16px 0; }
+  .app-frame { width: 390px; height: min(844px, calc(100vh - 32px)); min-height: 0; border: 1px solid #e6e8ed; border-radius: 24px; box-shadow: 0 8px 28px #20283a12; }
+  .screen { height: 100%; min-height: 100%; overflow-y: auto; padding-bottom: 58px; }
+  .login-screen { min-height: 100%; padding: 76px 24px 24px; }
+  .home-header { padding: 78px 15px 8px; }
+  .home-content, .project-content, .detail-content, .profile-content { padding-right: 14px; padding-left: 14px; }
+  .bottom-navigation { bottom: max(calc((100vh - 844px) / 2), 16px); border-radius: 0 0 23px 23px; }
+  .fab { right: max(calc((100vw - 390px) / 2 + 14px), 14px); bottom: max(calc((100vh - 844px) / 2 + 62px), 62px); }
+  .project-fab { bottom: max(calc((100vh - 844px) / 2 + 62px), 62px); }
+  .bottom-sheet { margin-bottom: max(calc((100vh - 844px) / 2), 16px); border-radius: 18px 18px 0 0; }
+  #create-task-sheet { bottom: max(calc((100vh - 844px) / 2 + 52px), 68px); margin: 0 auto; }
+}
+
+@media (min-width: 1024px) {
+  .app-frame { width: 390px; }
+}
+
+@media (min-width: 600px) {
+  body { display: block; min-height: 100dvh; padding: 0; background: #f1f2f5; }
+  .app-frame { width: min(100%, 760px); max-width: 760px; height: auto; min-height: 100dvh; }
+  .screen { height: auto; min-height: 100dvh; padding-bottom: 76px; }
+  .login-screen { justify-content: center; padding: 56px 40px; }
+  .login-brand { color: var(--ink); }
+  .login-content { max-width: 420px; flex: 0 1 auto; margin: 40px auto; }
+  .login-description { margin: 12px 0 28px; font-size: 14px; }
+  .login-content .form-stack { margin-top: 0; gap: 10px; }
+  .form-stack > label { margin: 4px 0 -4px; font-size: 13px; }
+  .form-stack input, .form-stack textarea, .form-stack select { min-height: 50px; font-size: 14px; }
+  .button { min-height: 52px; font-size: 14px; }
+  .demo-note { margin: 18px 0 0; font-size: 12px; }
+  .home-header { padding: 48px 28px 12px; }
+  .home-content, .project-content, .detail-content, .profile-content { padding-right: 28px; padding-left: 28px; }
+  .project-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .project-card { min-height: 158px; }
+  .project-content, .detail-content, .profile-content { max-width: 760px; margin-right: auto; margin-left: auto; }
+  .bottom-navigation { bottom: 0; width: min(100%, 760px); }
+  .fab { right: max(calc((100vw - 760px) / 2 + 24px), 24px); }
+  .project-fab { bottom: 88px; }
+  .bottom-sheet { width: min(100%, 560px); max-width: 560px; }
+  #create-task-sheet { width: min(100%, 560px); }
+  .search-box { height: 44px; }
+  .search-box input { font-size: 13px; }
+  .section-heading h2 { font-size: 19px; }
+  .project-card-title h3 { font-size: 15px; }
+  .project-card-title p, .progress-heading, .progress-heading strong, .project-card-bottom { font-size: 11px; }
+  .inner-header h1, .profile-header h1 { font-size: 16px; }
+  .project-hero h2 { font-size: 17px; }
+  .project-progress-card p, .task-card-main h3 { font-size: 12px; }
+  .task-heading .task-total { font-size: 12px; }
+  .filter-chip { min-height: 32px; font-size: 11px; }
+  .task-card-meta { font-size: 10px; }
+  .detail-title { font-size: 20px; }
+  .detail-description { font-size: 13px; }
+  .info-label { font-size: 11px; }
+  .detail-info-row strong { font-size: 13px; }
+  .profile-card h2 { font-size: 18px; }
+  .profile-email { font-size: 12px; }
+  .profile-stats strong { font-size: 16px; }
+  .profile-stats span { font-size: 11px; }
+  .profile-menu-item { font-size: 13px; }
+}
+
+@media (min-width: 900px) {
+  body { display: block; min-height: 100dvh; padding: 0; }
+  .app-frame { width: min(100%, 1200px); max-width: 1200px; height: auto; min-height: 100dvh; margin: 0 auto; border-radius: 0; box-shadow: 0 0 50px #312d630a; }
+  .screen { height: auto; min-height: 100dvh; padding-bottom: 88px; }
+  .home-header { max-width: 1040px; margin: 0 auto; padding: 52px 32px 16px; }
+  .home-content { max-width: 1040px; margin: 0 auto; padding: 20px 32px 32px; }
+  .project-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+  .project-card { min-height: 176px; padding: 16px; }
+  .project-content, .detail-content, .profile-content { max-width: 900px; padding: 24px 32px 40px; }
+  .project-progress-card { min-height: 210px; }
+  .progress-ring { width: 112px; height: 112px; }
+  .task-summary { gap: 14px; margin: 16px 0 22px; }
+  .summary-card { min-height: 78px; }
+  .task-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .task-card { min-height: 82px; }
+  .bottom-navigation { width: min(100%, 1200px); min-height: 68px; }
+  .nav-item { min-width: 110px; font-size: 12px; }
+  .nav-icon { width: 32px; height: 29px; font-size: 22px; }
+  .fab { right: max(calc((100vw - 1200px) / 2 + 32px), 32px); bottom: 88px; width: 52px; height: 52px; }
+  .project-fab { bottom: 88px; }
+  .bottom-sheet { max-width: 620px; margin-bottom: 24px; border-radius: 22px; }
+  #create-task-sheet { inset: 24px 0 auto; width: min(calc(100% - 48px), 640px); height: min(90dvh, 760px); max-height: none; margin: 0 auto; border-radius: 18px; }
+  #create-task-sheet .sheet-content { min-height: 0; padding: 24px; }
+  #create-task-sheet .sheet-handle { display: block; }
+  #create-task-sheet .sheet-heading .eyebrow { display: block; }
+}
+
+@media (min-width: 1200px) {
+  .project-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.button { justify-content: center; text-align: center; }
+.summary-pending { color: #c83f4f; background: #ffe1e2; }
+.summary-progress { color: #a67a17; background: #fff0c2; }
+
+.project-card { position: relative; display: block; min-height: 158px; padding: 0; overflow: hidden; }
+.project-card-link { display: flex; min-height: inherit; flex-direction: column; justify-content: space-between; padding: 12px; color: inherit; text-decoration: none; }
+.project-card-link:hover { color: inherit; }
+.project-card-top { padding-right: 28px; }

@@ -1,0 +1,16 @@
+@media (min-width: 600px) {
+  .project-card-link { padding: 16px; }
+  .task-sheet-heading { grid-template-columns: 44px minmax(0, 1fr) 44px; }
+  .task-sheet-heading h2 { font-size: 18px !important; }
+  .member-editor { padding: 16px; }
+  .member-editor > label { font-size: 12px; }
+  .member-add-row input, .member-add-row select { min-height: 44px; font-size: 13px; }
+  .member-chip { font-size: 12px; }
+}
+
+@media (min-width: 900px) {
+  .project-card-link { padding: 19px; }
+  .project-card { min-height: 176px; }
+  .task-edit-form { margin: 0; }
+}
+

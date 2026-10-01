@@ -1,0 +1,39 @@
+.status-option { font-size: 16px; }
+
+@media (max-width: 599px) {
+  .project-screen .inner-header .header-spacer { width: 28px; height: 28px; flex-basis: 28px; }
+  .greeting h1 { font-size: 22px; }
+  .greeting-subtitle { font-size: 13px; }
+  .search-box { height: 42px; }
+  .section-heading h2 { font-size: 20px; }
+  .project-count { font-size: 13px; }
+  .project-card-title h3 { font-size: 16px; }
+  .project-card-title p, .progress-heading, .progress-heading strong,
+  .project-card-bottom { font-size: 12px; }
+
+  .nav-item { font-size: 12px; }
+  .inner-header h1, .profile-header h1 { font-size: 18px; }
+  .project-hero h2 { font-size: 19px; }
+  .project-progress-card p, .summary-card > span:last-child,
+  .task-heading .task-total { font-size: 13px; }
+  .summary-card strong { font-size: 18px; }
+  .progress-ring strong { font-size: 18px; }
+  .progress-ring span { font-size: 13px; }
+  .filter-chip { font-size: 13px; }
+  .task-card-main h3 { font-size: 16px; }
+  .task-card .status-badge { font-size: 11px; }
+  .task-card-meta { font-size: 12px; }
+  .detail-title { font-size: 20px; }
+  .detail-description { font-size: 14px; }
+  .detail-description-block .info-label, .detail-info-row .info-label { font-size: 13px; }
+  .detail-info-row strong { font-size: 14px; }
+  .detail-status-display, .detail-status-trigger { font-size: 13px; }
+  .form-stack > label, .task-edit-form > label { font-size: 14px; }
+  .profile-card h2 { font-size: 19px; }
+  .profile-email, .profile-menu-item { font-size: 13px; }
+  .profile-stats strong { font-size: 16px; }
+  .profile-stats span { font-size: 12px; }
+  .member-editor > label { font-size: 13px; }
+  .member-chip { font-size: 12px; }
+  .sheet-heading h2 { font-size: 18px; }
+}

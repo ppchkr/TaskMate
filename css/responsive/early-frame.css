@@ -1,0 +1,26 @@
+@media (min-width: 768px) {
+  body { padding: 24px 0; }
+  .app-frame { min-height: calc(100vh - 48px); border: 1px solid #eeedf4; border-radius: 28px; }
+  .screen { min-height: calc(100vh - 48px); }
+  .login-screen { min-height: calc(100vh - 48px); padding: 52px; }
+  .home-header { padding: 34px 30px 18px; }
+  .home-content, .project-content, .detail-content, .profile-content { padding-right: 30px; padding-left: 30px; }
+  .bottom-navigation { bottom: 24px; border-radius: 0 0 27px 27px; }
+  .fab { right: max(calc((100vw - 540px) / 2 + 31px), 31px); bottom: 118px; }
+  .project-fab { bottom: 115px; }
+  .bottom-sheet { margin-bottom: 24px; border-radius: 25px; }
+}
+
+@media (min-width: 1024px) {
+  body { display: grid; min-height: 100vh; place-items: center; }
+  .app-frame { width: 100%; }
+  .login-screen { padding-right: 64px; padding-left: 64px; }
+  .home-content, .project-content, .detail-content, .profile-content { padding-right: 32px; padding-left: 32px; }
+  .project-list { gap: 14px; }
+  .project-card { padding: 19px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+

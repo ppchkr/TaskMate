@@ -1,0 +1,24 @@
+/* Theme tokens: final values after the Figma-aligned palette. */
+:root {
+  color-scheme: light;
+  --primary: #625cf5;
+  --primary-dark: #5148e6;
+  --primary-soft: #eef0ff;
+  --ink: #182033;
+  --muted: #8992a2;
+  --line: #e7eaf0;
+  --surface: #ffffff;
+  --canvas: #f3f4f6;
+  --green: #32c99a;
+  --green-soft: #d4f7e9;
+  --amber: #edb53e;
+  --amber-soft: #fff1c5;
+  --blue: #5b8ce8;
+  --blue-soft: #edf3ff;
+  --radius-card: 13px;
+  font-size: 16px;
+  font-family: "TH Sarabun New", "TH SarabunPSK", "Sarabun", "Noto Sans Thai", sans-serif;
+  color: var(--ink);
+  background: var(--canvas);
+  font-synthesis: none;
+}

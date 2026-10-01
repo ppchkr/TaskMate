@@ -1,0 +1,68 @@
+
+.icon { display: block; width: 1.25em; height: 1.25em; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.brand-mark .icon { width: 22px; height: 22px; stroke-width: 2; }
+.search-box > span:first-child { display: grid; width: 22px; height: 22px; flex: 0 0 22px; place-items: center; transform: none; }
+.search-box .icon { width: 19px; height: 19px; }
+.nav-icon { width: 26px; height: 25px; font-size: 16px; }
+.nav-icon .icon { width: 20px; height: 20px; }
+.icon-button .icon { width: 18px; height: 18px; }
+.fab .icon { width: 22px; height: 22px; }
+.project-menu-button .icon { width: 17px; height: 17px; fill: currentColor; stroke: none; }
+.project-task-count .icon, .deadline-meta .icon { width: 15px; height: 15px; }
+.status-badge .icon { width: 15px; height: 15px; }
+.detail-status-display, .detail-status-trigger { min-height: 28px; }
+.detail-status-trigger { display: inline-flex; border: 0; cursor: pointer; }
+.task-edit-form > .detail-status-trigger { align-self: flex-start; }
+.detail-status-trigger:focus-visible { outline: 3px solid #aaa3ff; outline-offset: 2px; }
+.detail-title { margin: 14px 0 14px; font-size: 20px; font-weight: 700; line-height: 1.35; letter-spacing: 0; }
+.detail-description-block { display: grid; gap: 5px; margin-bottom: 16px; }
+.detail-description-block .info-label, .detail-info-row .info-label { font-size: 13px; font-weight: 500; }
+.detail-description { margin: 0; color: #778292; font-size: 14px; line-height: 1.65; }
+.detail-info-card { padding: 0 13px; }
+.detail-info-row { min-height: 49px; justify-content: space-between; }
+.detail-info-row > .info-label { flex: 0 0 auto; }
+.detail-info-row strong { font-size: 14px; font-weight: 600; }
+.assignee-display { display: inline-flex; align-items: center; gap: 7px; }
+.assignee-display .mini-avatar { width: 25px; height: 25px; flex-basis: 25px; margin: 0; border: 0; font-size: 10px; }
+.detail-deadline-value { display: inline-flex; align-items: center; gap: 6px; color: #d24b54; }
+.detail-deadline-value .icon { width: 16px; height: 16px; }
+.task-edit-form { width: 100%; max-width: 620px; }
+.task-edit-form > label { margin: 6px 0 -3px; font-size: 14px; font-weight: 600; }
+.task-edit-form input, .task-edit-form textarea, .task-edit-form select { min-height: 46px; font-size: 15px; }
+.task-edit-form textarea { min-height: 90px; }
+
+.inner-header h1, .profile-header h1 { font-size: 17px; font-weight: 700; letter-spacing: 0; }
+.greeting h1 { font-size: 22px; font-weight: 700; letter-spacing: 0; }
+.greeting-subtitle { font-size: 13px; }
+.search-box input { font-size: 14px; }
+.section-heading h2 { font-size: 20px; font-weight: 700; letter-spacing: 0; }
+.project-count { font-size: 12px; }
+.project-card-title h3 { font-size: 16px; font-weight: 700; }
+.project-card-title p, .progress-heading, .progress-heading strong, .project-card-bottom { font-size: 13px; }
+.task-heading .task-total { font-size: 14px; }
+.filter-chip { font-size: 12px; font-weight: 600; }
+.task-card-main h3 { font-size: 15px; font-weight: 700; }
+.task-card-meta { font-size: 12px; }
+.task-card .status-badge { font-size: 11px; }
+.profile-card h2 { font-size: 19px; font-weight: 700; }
+.profile-email, .profile-stats span, .profile-menu-item { font-size: 13px; }
+.profile-stats strong { font-size: 16px; font-weight: 700; }
+.form-stack > label { font-size: 14px; font-weight: 600; }
+.form-stack input, .form-stack textarea, .form-stack select { font-size: 15px; }
+.button { font-size: 15px; font-weight: 700; }
+.project-progress-card p, .task-heading .task-total, .filter-chip, .task-card-main h3 { line-height: 1.4; }
+.project-menu-button { font-size: 0 !important; }
+
+.status-options { display: grid; gap: 8px; margin: 12px 0 8px; padding: 0; border: 0; }
+.status-option { position: relative; display: grid; min-height: 48px; grid-template-columns: 26px minmax(0, 1fr) 18px; align-items: center; gap: 9px; padding: 0 12px; border: 1px solid #e7eaf0; border-radius: 11px; color: #424b5b; background: #fafbfc; font-size: 14px; cursor: pointer; }
+.status-option:has(input:checked) { border: 2px solid var(--primary); color: var(--ink); background: #f0efff; }
+.status-option input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.status-option:focus-within { outline: 3px solid #aaa3ff; outline-offset: 2px; }
+.status-mark { display: grid; width: 24px; height: 24px; place-items: center; }
+.status-mark .icon { width: 20px; height: 20px; stroke-width: 2; }
+.pending-mark { color: #a9b1bf; }
+.progress-mark { color: #f0a22b; }
+.done-mark { color: var(--green); }
+.status-radio { width: 16px; height: 16px; border: 2px solid #adb5c2; border-radius: 50%; }
+.status-option input:checked ~ .status-radio { border: 5px solid var(--primary); }
+.sheet-heading h2 { font-size: 17px; font-weight: 700; }

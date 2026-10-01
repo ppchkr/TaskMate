@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fc">
+  <meta name="description" content="TaskMate แอปจัดการโปรเจคและภาระงานกลุ่มสำหรับนักศึกษา">
+  <title>TaskMate — จัดการโปรเจคของคุณ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <main class="app-frame">
+    <section class="screen login-screen" id="login-screen" aria-labelledby="login-title">
+      <div class="login-brand" aria-label="TaskMate">
+        <span class="brand-mark" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg></span>
+        <h1 id="login-title">TaskMate</h1>
+      </div>
+      <div class="login-content">
+        <p class="login-description">ติดตามความคืบหน้าของโครงการกลุ่มได้อย่างง่ายดาย</p>
+        <form id="login-form" class="form-stack" novalidate>
+          <label for="login-email">อีเมล</label>
+          <input id="login-email" name="email" type="email" autocomplete="email" placeholder="name@university.ac.th" required>
+          <label for="login-password">รหัสผ่าน</label>
+          <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="กรอกรหัสผ่าน" required>
+          <p class="form-error" id="login-error" role="alert" hidden></p>
+          <button class="button button-primary login-submit" type="submit">เข้าสู่ระบบ</button>
+        </form>
+        <p class="demo-note">ทดลองใช้งานได้ด้วยอีเมลและรหัสผ่านใดก็ได้</p>
+      </div>
+      <div class="login-decoration" aria-hidden="true">
+        <span class="decoration-dot dot-one"></span>
+        <span class="decoration-dot dot-two"></span>
+        <span class="decoration-ring"></span>
+      </div>
+    </section>
+
+    <section class="screen home-screen" id="home-screen" aria-labelledby="home-title" hidden>
+      <header class="page-header home-header">
+        <div class="greeting">
+          <p class="eyebrow">วันจันทร์, 28 กันยายน 2026</p>
+          <h1>สวัสดี, Sarah!</h1>
+          <p class="greeting-subtitle">วันนี้มีงานของคุณที่ใกล้จะถึงกำหนด!</p>
+        </div>
+        <button class="avatar-button" type="button" data-navigate="profile" aria-label="ไปที่โปรไฟล์">
+          <img src="assets/images/avatar.svg" alt="รูปโปรไฟล์ Sarah J.">
+        </button>
+      </header>
+      <div class="home-content">
+        <label class="search-box" for="project-search">
+          <span aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 4.5 4.5"></path></svg></span>
+          <input id="project-search" type="search" placeholder="ค้นหาโปรเจค..." autocomplete="off">
+          <span class="sr-only">ค้นหาโปรเจคด้วยชื่อหรือรหัสวิชา</span>
+        </label>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">พื้นที่ทำงานของคุณ</p>
+            <h2 id="home-title">โปรเจคของฉัน</h2>
+          </div>
+          <span class="project-count" id="project-count">3 โปรเจค</span>
+        </div>
+        <section class="project-list" id="project-list" aria-label="รายการโปรเจค"></section>
+        <p class="empty-state" id="project-empty" hidden>ไม่พบโปรเจคที่ค้นหา ลองใช้คำอื่นดูนะ</p>
+      </div>
+      <button class="fab" id="open-create-project" type="button" aria-label="สร้างโปรเจคใหม่"><svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg></button>
+      <nav class="bottom-navigation" aria-label="เมนูหลัก">
+        <button class="nav-item is-active" type="button" data-navigate="home" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"></path>
+            </svg>
+          </span>
+          <span>หน้าหลัก</span>
+        </button>
+        <button class="nav-item" type="button" data-navigate="profile">
+          <span class="nav-icon" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="3.5"></circle>
+              <path d="M5 21v-1a7 7 0 0 1 14 0v1z"></path>
+            </svg>
+          </span>
+          <span>โปรไฟล์</span>
+        </button>
+      </nav>
+    </section>
+
+    <section class="screen project-screen" id="project-screen" aria-labelledby="project-title" hidden>
+      <header class="page-header inner-header">
+        <button class="icon-button" type="button" data-back aria-label="กลับหน้าก่อนหน้า"><svg class="icon" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6M9 12h12"></path></svg></button>
+        <h1 id="project-title">ภาระงานของโปรเจค</h1>
+        <span class="header-spacer" aria-hidden="true"></span>
+      </header>
+      <div class="project-content">
+        <section class="project-hero" aria-labelledby="current-project-name">
+          <div class="project-hero-top">
+            <span class="course-chip" id="current-project-code">DTI287</span>
+            <span class="hero-menu-mark" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"></path></svg></span>
+          </div>
+          <h2 id="current-project-name">Midterm Group Project</h2>
+          <div class="project-progress-card">
+            <div class="progress-ring" id="project-progress-ring" role="progressbar" aria-label="ความคืบหน้าของโปรเจค" aria-valuemin="0" aria-valuemax="100" aria-valuenow="65" style="--progress:65%">
+              <strong id="project-progress-label">65%</strong>
+              <span>Complete</span>
+            </div>
+            <p>ติดตามโครงการที่กำลังดำเนินการให้สำเร็จลุล่วง</p>
+          </div>
+          <span class="sr-only" id="project-deadline">กำหนดส่ง 30 ต.ค.</span>
+        </section>
+
+        <section class="task-summary" aria-label="สรุปสถานะภาระงาน">
+          <article class="summary-card summary-pending"><strong id="count-pending">2</strong><span>ยังไม่ได้ดำเนินการ</span></article>
+          <article class="summary-card summary-progress"><strong id="count-progress">2</strong><span>กำลังดำเนินการ</span></article>
+          <article class="summary-card summary-done"><strong id="count-done">1</strong><span>เสร็จสิ้น</span></article>
+        </section>
+
+        <section class="task-section" aria-labelledby="task-list-heading">
+          <div class="section-heading task-heading">
+            <div><p class="eyebrow task-total" id="task-total-label">5 ภาระงานในโปรเจคนี้</p><h2 id="task-list-heading" class="sr-only">รายการภาระงาน</h2></div>
+          </div>
+          <div class="filter-list" role="group" aria-label="กรองภาระงานตามสถานะ">
+            <button class="filter-chip is-selected" type="button" data-filter="all" aria-pressed="true">ทั้งหมด</button>
+            <button class="filter-chip" type="button" data-filter="pending" aria-pressed="false">ยังไม่ได้ดำเนินการ</button>
+            <button class="filter-chip" type="button" data-filter="in-progress" aria-pressed="false">กำลังดำเนินการ</button>
+            <button class="filter-chip" type="button" data-filter="done" aria-pressed="false">เสร็จสิ้น</button>
+          </div>
+          <div class="task-list" id="task-list"></div>
+          <p class="empty-state" id="task-empty" hidden>ไม่มีภาระงานในสถานะนี้</p>
+        </section>
+      </div>
+      <button class="fab project-fab" id="open-create-task-fab" type="button" aria-label="สร้างภาระงานใหม่"><svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg></button>
+      <nav class="bottom-navigation" aria-label="เมนูหลัก">
+        <button class="nav-item" type="button" data-navigate="home">
+          <span class="nav-icon" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"></path>
+            </svg>
+          </span>
+          <span>หน้าหลัก</span>
+        </button>
+        <button class="nav-item" type="button" data-navigate="profile">
+          <span class="nav-icon" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="3.5"></circle>
+              <path d="M5 21v-1a7 7 0 0 1 14 0v1z"></path>
+            </svg>
+          </span>
+          <span>โปรไฟล์</span>
+        </button>
+      </nav>
+    </section>
+
+    <section class="screen detail-screen" id="task-detail-screen" aria-labelledby="detail-page-title" hidden>
+      <header class="page-header inner-header">
+        <button class="icon-button" type="button" data-back aria-label="กลับหน้าก่อนหน้า"><svg class="icon" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6M9 12h12"></path></svg></button>
+        <h1 id="detail-page-title">รายละเอียดภาระงาน</h1>
+        <button class="icon-button" id="edit-task-toggle" type="button" aria-label="แก้ไขภาระงาน" aria-pressed="false">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path d="m4 16.5-.8 4.3 4.3-.8L19.7 7.8a2.1 2.1 0 0 0-3-3zM14.8 6.7l3 3"></path>
+          </svg>
+        </button>
+      </header>
+      <div class="detail-content">
+        <section class="task-detail-view" id="task-detail-view">
+          <span class="status-badge detail-status-display" id="detail-status-display"></span>
+          <h2 class="detail-title" id="detail-task-name"></h2>
+          <div class="detail-description-block">
+            <span class="info-label">รายละเอียด</span>
+            <p class="detail-description" id="detail-task-description"></p>
+          </div>
+          <section class="detail-info-card" aria-label="ข้อมูลภาระงาน">
+            <div class="detail-info-row">
+              <span class="info-label">ผู้รับผิดชอบ</span>
+              <span class="assignee-display"><span class="mini-avatar" id="detail-assignee-avatar" aria-hidden="true"></span><strong id="detail-assignee"></strong></span>
+            </div>
+            <div class="detail-info-row">
+              <span class="info-label">กำหนดส่ง</span>
+              <strong class="detail-deadline-value">
+                <svg class="icon icon-alert" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M12 8v5m0 3h.01"></path>
+                </svg>
+                <span id="detail-deadline"></span>
+              </strong>
+            </div>
+            <div class="detail-info-row">
+              <span class="info-label">สร้างโดย</span>
+              <strong id="detail-creator"></strong>
+            </div>
+          </section>
+        </section>
+        <form class="form-stack task-edit-form" id="edit-task-form" hidden novalidate>
+          <button class="status-badge detail-status-trigger" id="detail-status-trigger" type="button" aria-label="เปลี่ยนสถานะภาระงาน"></button>
+          <label for="edit-task-name">ชื่อภาระงาน</label>
+          <input id="edit-task-name" name="name" type="text" placeholder="ระบุชื่อภาระงาน" required>
+          <label for="edit-task-description">รายละเอียด</label>
+          <textarea id="edit-task-description" name="description" rows="3" placeholder="รายละเอียดเพิ่มเติม (ไม่บังคับ)"></textarea>
+          <label for="edit-task-assignee">ผู้รับผิดชอบ</label>
+          <select id="edit-task-assignee" name="assignee" required></select>
+          <label for="edit-task-deadline">กำหนดส่ง</label>
+          <input id="edit-task-deadline" name="deadline" type="date" required>
+          <p class="form-error" id="edit-task-form-error" role="alert" hidden></p>
+          <button class="button button-primary" type="submit">ยืนยันการแก้ไข</button>
+        </form>
+      </div>
+      <nav class="bottom-navigation" aria-label="เมนูหลัก">
+        <button class="nav-item" type="button" data-navigate="home">
+          <span class="nav-icon" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"></path>
+            </svg>
+          </span>
+          <span>หน้าหลัก</span>
+        </button>
+        <button class="nav-item" type="button" data-navigate="profile">
+          <span class="nav-icon" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="3.5"></circle>
+              <path d="M5 21v-1a7 7 0 0 1 14 0v1z"></path>
+            </svg>
+          </span>
+          <span>โปรไฟล์</span>
+        </button>
+      </nav>
+    </section>
+
+    <section class="screen profile-screen" id="profile-screen" aria-labelledby="profile-title" hidden>
+      <header class="page-header profile-header">
+        <h1 id="profile-title">โปรไฟล์</h1>
+        <button class="icon-button" type="button" data-back aria-label="กลับหน้าก่อนหน้า">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path d="m6 6 12 12M18 6 6 18"></path>
+          </svg>
+        </button>
+      </header>
+      <div class="profile-content">
+        <article class="profile-card">
+          <span class="profile-avatar" role="img" aria-label="รูปโปรไฟล์ Sarah Jones">SJ</span>
+          <h2>Sarah Jones</h2>
+          <p class="profile-role">นักศึกษา · คณะเทคโนโลยีสารสนเทศ</p>
+          <p class="profile-email">sarah.jones@university.edu</p>
+        </article>
+        <section class="profile-stats" aria-label="สถิติการใช้งาน">
+          <article>
+            <strong id="profile-project-count">3</strong>
+            <span>โปรเจค</span>
+          </article>
+          <article>
+            <strong id="profile-task-count">5</strong>
+            <span>เสร็จสิ้น</span>
+          </article>
+          <article>
+            <strong id="profile-progress-count">40%</strong>
+            <span>กำลังดำเนินการ</span>
+          </article>
+        </section>
+        <section class="profile-menu" aria-label="ตั้งค่าบัญชี">
+          <button class="profile-menu-item" type="button">
+            <svg class="icon menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="8" r="3.5"></circle>
+              <path d="M5 21v-1a7 7 0 0 1 14 0v1z"></path>
+            </svg>
+            <span>แก้ไขโปรไฟล์</span>
+            <svg class="icon menu-arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m9 18 6-6-6-6"></path>
+            </svg>
+          </button>
+          <button class="profile-menu-item profile-logout" id="logout-button" type="button">
+            <svg class="icon menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M10 17l5-5-5-5M15 12H3"></path>
+              <path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"></path>
+            </svg>
+            <span>ออกจากระบบ</span>
+            <svg class="icon menu-arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m9 18 6-6-6-6"></path>
+            </svg>
+          </button>
+        </section>
+      </div>
+      <nav class="bottom-navigation" aria-label="เมนูหลัก">
+        <button class="nav-item" type="button" data-navigate="home">
+          <span class="nav-icon" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"></path>
+            </svg>
+          </span>
+          <span>หน้าหลัก</span>
+        </button>
+        <button class="nav-item is-active" type="button" data-navigate="profile" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="3.5"></circle>
+              <path d="M5 21v-1a7 7 0 0 1 14 0v1z"></path>
+            </svg>
+          </span>
+          <span>โปรไฟล์</span>
+        </button>
+      </nav>
+    </section>
+  </main>
+
+  <dialog class="bottom-sheet" id="create-project-sheet" aria-labelledby="create-project-title">
+    <form class="sheet-content form-stack" id="create-project-form" novalidate>
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <div class="sheet-heading">
+        <div>
+          <p class="eyebrow">เริ่มต้นสิ่งใหม่</p>
+          <h2 id="create-project-title">สร้างโปรเจค</h2>
+        </div>
+        <button class="icon-button sheet-close" type="button" data-close-dialog aria-label="ปิด">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path d="m6 6 12 12M18 6 6 18"></path>
+          </svg>
+        </button>
+      </div>
+      <label for="new-project-name">ชื่อโปรเจค</label>
+      <input id="new-project-name" name="name" type="text" placeholder="เช่น แอปจัดการเวลา" required>
+      <label for="new-project-code">รหัสวิชา / โปรเจค</label>
+      <input id="new-project-code" name="code" type="text" placeholder="เช่น DTI346" required>
+      <label for="new-project-deadline">กำหนดส่ง</label>
+      <input id="new-project-deadline" name="deadline" type="date" required>
+      <fieldset class="member-editor">
+        <legend>สมาชิกในโปรเจค</legend>
+        <label for="project-existing-member">เพิ่มผู้ใช้ที่เคยติดต่อ</label>
+        <div class="member-add-row">
+          <select id="project-existing-member">
+            <option value="">เลือกชื่อผู้ใช้</option>
+          </select>
+          <button class="button button-secondary" id="add-existing-member" type="button">เพิ่ม</button>
+        </div>
+        <label for="project-new-member-email">เพิ่มคนใหม่จากอีเมล</label>
+        <div class="member-add-row">
+          <input id="project-new-member-email" type="email" placeholder="name@example.com">
+          <button class="button button-secondary" id="add-email-member" type="button">เพิ่ม</button>
+        </div>
+        <ul class="member-chip-list" id="project-member-list" aria-live="polite"></ul>
+      </fieldset>
+      <p class="form-error" id="project-form-error" role="alert" hidden></p>
+      <div class="sheet-form-actions">
+        <button class="button button-danger" id="delete-project-button" type="button" hidden>ลบโปรเจค</button>
+        <button class="button button-primary" type="submit">สร้างโปรเจค</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="bottom-sheet" id="create-task-sheet" aria-labelledby="create-task-title">
+    <form class="sheet-content form-stack" id="create-task-form" novalidate>
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <div class="sheet-heading task-sheet-heading">
+        <button class="icon-button sheet-close" type="button" data-close-dialog aria-label="กลับไปยังรายการภาระงาน">
+          <svg class="icon" viewBox="0 0 24 24">
+            <path d="m15 18-6-6 6-6M9 12h12"></path>
+          </svg>
+        </button>
+        <h2 id="create-task-title">สร้างภาระงานใหม่</h2>
+        <span aria-hidden="true"></span>
+      </div>
+      <label for="task-name">ชื่อภาระงาน</label>
+      <input id="task-name" name="name" type="text" placeholder="ระบุชื่อภาระงาน" required>
+      <label for="task-description">รายละเอียด</label>
+      <textarea id="task-description" name="description" rows="3" placeholder="รายละเอียดเพิ่มเติม (ไม่บังคับ)"></textarea>
+      <label for="task-assignee">ผู้รับผิดชอบ</label>
+      <select id="task-assignee" name="assignee" required>
+        <option value="">เลือกสมาชิก</option>
+      </select>
+      <label for="task-deadline">กำหนดส่ง</label>
+      <input id="task-deadline" name="deadline" type="date" required>
+      <p class="form-error" id="task-form-error" role="alert" hidden></p>
+      <button class="button button-primary" type="submit">สร้างภาระงาน</button>
+    </form>
+  </dialog>
+
+  <dialog class="bottom-sheet status-sheet" id="update-status-sheet" aria-labelledby="status-sheet-title">
+    <form class="sheet-content form-stack" id="status-form">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <div class="sheet-heading">
+        <div>
+          <h2 id="status-sheet-title">เปลี่ยนสถานะของภาระงาน</h2>
+        </div>
+        <button class="icon-button sheet-close" type="button" data-close-dialog aria-label="ปิด">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m6 6 12 12M18 6 6 18"></path>
+          </svg>
+        </button>
+      </div>
+      <fieldset class="status-options">
+        <legend class="sr-only">เลือกสถานะใหม่</legend>
+        <label class="status-option">
+          <input type="radio" name="task-status" value="pending">
+          <span class="status-mark pending-mark">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="8"></circle>
+            </svg>
+          </span>
+          <span>ยังไม่ได้ดำเนินการ</span>
+          <span class="status-radio"></span>
+        </label>
+        <label class="status-option">
+          <input type="radio" name="task-status" value="in-progress">
+          <span class="status-mark progress-mark">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="8"></circle>
+              <path d="M12 8v4l3 2"></path>
+            </svg>
+          </span>
+          <span>กำลังดำเนินการ</span>
+          <span class="status-radio"></span>
+        </label>
+        <label class="status-option">
+          <input type="radio" name="task-status" value="done">
+          <span class="status-mark done-mark">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m5 12 4 4L19 6"></path>
+            </svg>
+          </span>
+          <span>เสร็จสิ้น</span>
+          <span class="status-radio"></span>
+        </label>
+      </fieldset>
+      <p class="form-error" id="status-form-error" role="alert" hidden></p>
+      <button class="button button-primary" type="submit">บันทึกการแก้ไข</button>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

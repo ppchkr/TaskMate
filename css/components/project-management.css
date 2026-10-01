@@ -1,0 +1,24 @@
+.card-more.project-menu-button { position: absolute; top: 8px; right: 8px; display: grid; width: 30px; height: 30px; place-items: center; padding: 0; border: 0; border-radius: 50%; color: #626c79; background: transparent; font: inherit; font-size: 14px; letter-spacing: 1px; cursor: pointer; }
+.card-more.project-menu-button:hover, .card-more.project-menu-button:focus-visible { color: var(--primary); background: var(--primary-soft); }
+
+.task-sheet-heading { display: grid; grid-template-columns: 40px minmax(0, 1fr) 40px; align-items: center; gap: 8px; }
+.task-sheet-heading h2 { margin: 0; text-align: center; }
+.task-sheet-heading .sheet-close { justify-self: start; }
+.task-edit-form { max-width: 620px; margin: 0 auto; }
+.task-edit-form > label { margin: 5px 0 -4px; color: #525d6d; font-size: 12px; font-weight: 500; }
+.task-edit-form input, .task-edit-form textarea, .task-edit-form select { min-height: 44px; font-size: 13px; }
+.task-edit-form textarea { min-height: 82px; }
+
+.member-editor { display: grid; gap: 8px; margin: 8px 0 0; padding: 12px; border: 1px solid var(--line); border-radius: 12px; }
+.member-editor legend { padding: 0 5px; color: var(--ink); font-size: 13px; font-weight: 600; }
+.member-editor > label { margin: 0; color: #596577; font-size: 11px; font-weight: 500; }
+.member-add-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+.member-add-row input, .member-add-row select { min-width: 0; min-height: 40px; padding: 0 10px; border: 1px solid var(--line); border-radius: 9px; background: #fff; font-size: 12px; }
+.button-secondary { min-height: 40px; padding: 0 13px; color: var(--primary); background: var(--primary-soft); font-size: 12px; }
+.member-chip-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.member-chip { display: inline-flex; max-width: 100%; align-items: center; gap: 5px; padding: 5px 7px 5px 10px; border-radius: 999px; color: #465063; background: #f1f2f5; font-size: 10px; overflow-wrap: anywhere; }
+.member-chip-remove { display: grid; width: 20px; height: 20px; flex: 0 0 20px; place-items: center; border: 0; border-radius: 50%; color: #626c79; background: #fff; font-size: 15px; }
+.sheet-form-actions { display: grid; gap: 8px; margin-top: 4px; }
+.button-danger { color: #c83f4f; background: #ffe1e2; }
+.header-spacer { display: block; width: 28px; height: 28px; flex: 0 0 28px; }
+

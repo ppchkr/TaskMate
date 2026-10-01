@@ -1,0 +1,22 @@
+@media (max-width: 389px) {
+  .detail-content { padding-right: 14px; padding-left: 14px; }
+  .detail-title { font-size: 18px; }
+  .detail-description { font-size: 13px; }
+  .detail-info-row { gap: 6px; }
+  .detail-info-row strong { font-size: 13px; }
+  .detail-info-row .info-label { font-size: 12px; }
+}
+
+@media (max-width: 599px) {
+  .nav-item { font-size: 11px; }
+  .summary-card strong { font-size: 17px; font-weight: 700; }
+  .summary-card > span:last-child { font-size: 12px; }
+  .project-hero h2 { font-size: 17px; font-weight: 700; }
+  .project-progress-card p { font-size: 12px; }
+  .progress-ring strong { font-size: 17px; font-weight: 700; }
+  .progress-ring span { font-size: 12px; }
+  .task-card .status-badge { font-size: 11px; }
+  .task-card-meta .mini-avatar { font-size: 9px; }
+  .fab { width: 44px; height: 44px; }
+}
+
